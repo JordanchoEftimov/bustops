@@ -18,7 +18,7 @@ class BusStopController extends Controller
                 ->orWhere('number', 'LIKE', '%' . $query . '%'));
         })->paginate(9);
 
-        $bus_stops->setPath('/');
+        $bus_stops->setPath('/bus_stops');
         if ($request->wantsJson()) return JsonResource::make($bus_stops);
 
         return Inertia::render('BusStops', compact('bus_stops', 'query'));
