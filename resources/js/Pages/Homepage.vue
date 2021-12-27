@@ -47,7 +47,7 @@ export default {
     data() {
         return {
             search: this.$inertia.form({
-                query: this.query,
+                query: this.query.toUpperCase(),
             }),
         }
     },
