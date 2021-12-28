@@ -14,8 +14,8 @@ class BusStopController extends Controller
     {
         $query = $request->get('query');
         $bus_stops = BusStop::query()->when($query, function ($q, $query) {
-            $q->where(fn($q) => $q->where('name', 'LIKE', '%' . $query . '%')
-                ->orWhere('number', 'LIKE', '%' . $query . '%'));
+            $q->where(fn($q) => $q->where('name', 'LIKE', '%' . strtoupper($query) . '%')
+                ->orWhere('number', 'LIKE', '%' . strtoupper($query) . '%'));
         })->paginate(9);
 
         $bus_stops->setPath('/bus_stops');

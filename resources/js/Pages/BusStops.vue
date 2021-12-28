@@ -87,7 +87,7 @@ export default {
             localBusStops: this.bus_stops.data,
             pagination: this.bus_stops,
             search: this.$inertia.form({
-                query: this.query ? this.query.toUpperCase() : '',
+                query: this.query,
             }),
             selectedBusStop: null,
             url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
